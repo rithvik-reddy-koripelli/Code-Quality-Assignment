@@ -1,0 +1,70 @@
+BUGS
+
+1] There should not be infinite loops in the program code.
+
+2] We should not compare a value with NaN. If we want to check whether the value of a variable is NaN, then use isNaN() function.
+
+3] All the conditional blocks of if/switch should not execute the same piece of code.
+
+4] We should not try to update the const variables. Even if we try to update them, it won't throw an error but would ignore the statement.
+
+5] Bitwise operators (&, |)should not be used in boolean contexts like in if/while statements
+
+6] We should not make calls to non-callable values. If would raise type error.
+
+7] The conditional blocks should be reachable ie there should not be expressions inside conditional blocks that are always true or always false.
+
+8] If the variable properties are null or undefined, they should not be accessed. IT would raise type error.
+
+9] The variable property names must not be repeated in within the object. If done, then the value of the last update would be assigned. 
+
+10] Setter functions should not return values. Functions with set keyword automatically return the value passed. So the return statement in the method is ignored.
+
+
+Vulnerabilities
+
+1] We should avoid using the eval statements in the code, as it would decrease the performance and raise security issues.
+
+2] Cross-domain document messaging should be restricted carefully to avoid the risk of sending confidential information to an unknown domain.
+
+3] Function constructor should not be used as it would work similar to eval statement and would decrease the performance and raise security issues.
+
+4] alert() statements should not be used as it would expose sensitive data. It can be used during development but not in production.
+
+
+5] Debugger statements should not be used in production as it would expose sensitive information
+
+6] WebSQL databases should not be used because it would expose the database parameters and raise security concerns.
+
+7] Local storage should not be used to store sensitive data. 
+
+8] Untrusted content from unverified source should not be included as it would be prone to attack from hackers.
+
+9] Console logging should be used only during development and should not be done in production as it would expose sensitive information.
+
+
+
+Code Smell
+
+1] Octal values should not be used in the code. Ti would just raise confusion to the developers.
+
+2]Switch cases should end with a conditional break statement so that the following conditional statements are not executed.
+
+
+3] Variables inside a function should be declared explicitly otherwise they would be created in the global scope.
+
+
+4] Delete operator should not be used on arrays. Deleting would just make the value at the index undefined and won't delete it actually from the array itself
+
+5] The types to be passed to the inbuilt functions should be compatible with the document specifications.
+
+
+6] Array indices should be numeric and not strings.If you want to have named indices it's better to use objects rather than arrays.
+
+7] Boolean expressions inside conditional statements should not evaluate to either true always or false always.
+
+8] All the variables that are not used in the next following instructions, then they must be removed.
+
+9] Functions should not be defined inside loops. This would raise unexpected behavior of the code.
+
+10] The ternary operators should not be nested as it would make the code  hard to read and would be difficult to maintain.   

@@ -1,0 +1,77 @@
+BUGS
+
+1] PreparedStatements and ResultSets indices start from 1 instead of traditional 0. So we need to call them with valid indicces greater than 0.
+
+2] When a lock is held by a thread, its better to call wait method on the monitor than calling sleep method on thread because thread.sleep() method will degrade the performance and also holds the execution of the thread. If wait is called then it would allow other threads to execute.
+
+3] Resources that are used like files, connections to databases, streams should be closed. It it recommended to close the resource in  finally block so that it closes the connections even if exception occurs or to use try with resource to close the resource connection automatically.
+
+4] There should not be an infinite loop in the program. There shoould be some loop termination condition or break statement that gets executed to end the loop.
+
+
+5] The dependencies of the project should not depend on the system scope. It would lead to portablity issues. 
+
+
+6] THe denominator of modulo operatoer or division operator should never be zero. It would raise ArithmeticException.
+
+
+7] equals method should not be used to test the equality between atomic classes. Instread we need to use the get() method to get the value of the atomic class and then comapre the values.
+
+
+8] run method of thread should not be called directly. Only the start() method of the thread should be called. Calling the run method would execute the statements in run method in cuirrent thread.
+
+
+9] Redundant if blocks should be removed ie if statements that are always true or that are always false should be removed.
+
+
+10] for loop counter should move in the right direction.If it moves in the wrong direction, it may lead to unexpected behaviour.
+
+
+
+Vulnerabilities
+
+1] method should not return internal array as it will allows the other method to modify the array. So it is adviced to return a copy of the array
+
+2] it is safe to use prepared statements instead of statements during execution of query so that it would prevent sql injection
+
+3] when using servelts, it's request parameters should be validated before using those parameters for further operations.
+
+4] There should not be empty database password. Having empty password means the database is not password protected and is prone to attacks. 
+
+5] The untrusted data should not be stored as session data. 
+
+6] Loggers should be used instead of printStackTrace so that it doesn't expose the sensitive information.
+
+7] The mutable variables should never be returned directly because it is prone to modifications by the calling function. So return a copy of the mutable variable.
+
+8] @RequestMapping methods should be made public. Even if the method is private, the spring framework would be calling the function using the reflection API.
+
+9] Servelt methods should never throw exceptions. Instead we need to use try catch block to handle expections. Throwing back the expections would lead to disclosure of sensitive information to the user. 
+
+10] Class variables should not be made public because it would expose the variables to other classes for modification.
+
+
+
+CODE SMELL
+
+1] The for loop control varibles should not be modified inside the loop.
+
+2] The methods should not be too lengthy. They would be modular and should serve single purpose.
+
+3] The method names must be camel cased.
+
+4] ‎all the code blocks should be enclosed in braces. Even if there is single statement in the if/for blocks, they should be enclosed in braces.
+
+5] Should not have nested Boolean operators with depth more than 3.
+
+6] Unused import statements should be removed. 
+
+7] Nested for loops is restricted to certain number
+
+8] The code should be properly indented. ‎ 
+
+9] There should not be unnecessary parenthesis in the code.
+
+10] The left curly brace of a block should be kept on the same line of the method/statements
+
+
